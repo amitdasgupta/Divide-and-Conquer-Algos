@@ -19,7 +19,7 @@ int fixedpointInDuplicateAllowed(int *array,int start,int last)
     }
 }
 *///////
-/***********fixed point in an array in which duplicate is allowed*///////
+/***********fixed point in an array in which duplicate is allowed
 int fixedPointDuplicate(int *array,int start,int last)
 {
     if(start>last)
@@ -38,13 +38,35 @@ int fixedPointDuplicate(int *array,int start,int last)
         return rightfind;
     }
 }
+*///////
+int median(int *array1,int *array2,int n)
+{
+    int count=0,val1,val2,i=0,j=0,temp;
+    while(count<=n)
+    {
+        if(array1[i]>array2[j])
+              {
+                   temp=array2[j];
+                   j++;
+              }
+        else
+               {
+                   temp=array1[i];
+                   i++;
+               }
+        if(count==n-1)
+            val1=temp;
+        else
+            if(count==n)
+             val2=temp;
+        count++;
+    }
+    return (val1+val2)/2;
+}
 int main()
 {
-    int n;
-    cin>>n;
-    int *array=new int[n];
-    for(int i=0;i<n;i++)
-        cin>>array[i];
-    cout<<fixedPointDuplicate(array,0,n-1);
-    delete[] array;
+   int ar1[] = {1, 12, 15, 26, 38};
+    int ar2[] = {2, 13, 17, 30, 45};
+    int n=sizeof(ar1)/sizeof(ar1[0]);
+    cout<<median(ar1,ar2,n);
 }
